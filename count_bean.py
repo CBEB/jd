@@ -77,7 +77,7 @@ def qianDao(cookies):
     addr='https://api.m.jd.com/client.action?functionId=signBeanAct&clientVersion=9.4.2&build=86916&client=android&d_brand=HUAWEI&d_model=STF-AL10&osVersion=9&screen=1920*1080&partner=huawei&oaid=bd33b7ff-f4ff-e77b-fe57-d6f95b6f95e7&eid=eidA967081212ascT40f7ANpSG+7HGB2vb4KXE+NIVnCZzPwc1VqaBwRbvuYUGhk9hFdP0tp5/I6uFKvyHo+y5S7JW5Uvi7+UX7Doe0t2vqtpoF0AElK&sdkVersion=28&lang=zh_CN&uuid=4587b4d704588eeb&aid=4587b4d704588eeb&area=12_904_905_50601&networkType=wifi&wifiBssid=unknown&uts=0f31TVRjBSsqndu4%2FjgUPz6uymy50MQJt%2FT2pfWlOS4ircGe9uXj5weXTGRI%2FLoLNhcw3asGSPBfTtSo%2F0C3zusSraijfol%2F6pFKN9T2ylO82uv%2Fev6uppuhFfyp78w6Kc8x4LRC7mCtk19fXpM1phWdkyY%2B4xDv%2B1sTlAQkwJxtPV2uIwlEryx8sCl50607YhoivmWZ0lCB5TAzcUM6hw%3D%3D&st=1615187312325&sign=f5f52526e712fbdd02dd5f5c6eca6020&sv=101'
     response = requests.post(addr,headers=headers1, data=data,cookies=cookies, params=params,verify=False)
     result = response.text
-    print(datetime.datetime.now(),result)
+    print(result)
 
 def countTodayBean(cookies, _datatime):
     income = 0

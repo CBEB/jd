@@ -335,6 +335,10 @@ def pk(cookies):
     print("\n【PK有礼】")  # TODO
     data = getTemplate(cookies, "smtg_getTeamPkDetailInfo", {})[
         "data"]["result"]
+    if  'data' not in data:
+        print('no PK person')
+        return
+    
     if "result" not in data["data"]:
         print(data["data"])
         return
