@@ -37,21 +37,21 @@ headers_app = {
 
 def getTemplate(cookies, functionId, params):
     params += (('reqSource', 'weapp'),)
-    response = requests.get(f'https://draw.jdfcloud.com//pet/{functionId}',
+    response = requests.get(f'https://jdjoy.jd.com/common/pet/{functionId}',
                             headers=headers, params=params, cookies=cookies)
     return response.json()
 
 
 def postTemplate(cookies, functionId, data):
     headers["Content-Type"] = "application/x-www-form-urlencoded"
-    response = requests.post(f'https://draw.jdfcloud.com//pet/{functionId}',
+    response = requests.post(f'https://jdjoy.jd.com/common/pet/{functionId}',
                              headers=headers, cookies=cookies, data=data)
     return response.json()
 
 
 def postTemplate2(cookies, functionId, data):
     headers["Content-Type"] = "application/json"
-    response = requests.post(f'https://draw.jdfcloud.com//pet/{functionId}',
+    response = requests.post(f'https://jdjoy.jd.com/common/pet/{functionId}',
                              headers=headers, cookies=cookies, data=json.dumps(data))
     return response.json()
 
