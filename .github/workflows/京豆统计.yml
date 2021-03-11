@@ -2,7 +2,7 @@ name: BeanSign_BeanCount
 
 on:
   schedule:
-    - cron: '5 3,11 * * * '
+    - cron: '11 5,8,11 * * *'
   watch:
     types: [started]
 jobs:
