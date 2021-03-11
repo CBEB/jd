@@ -220,6 +220,36 @@ def zhuanpan_3times(cookies):
     result = response.text
     print(result)
 
+def jd_tiantiansignnew(cookies):
+    headers = {
+        'Host': 'api.m.jd.com',
+        'Accept': 'application/json, text/plain, */*',
+        'Connection': 'Keep-Alive',
+        'Origin': 'https://h5.m.jd.com',
+        'User-Agent':'okhttp/3.12.1',
+        'Accept-Language': 'zh-CN,en-US;q=0.9',
+        'Referer':'https://h5.m.jd.com/babelDiy/Zeus/yj8mbcm6roENn7qhNdhiekyeqtd/index.html?sid=8f1b25b586373ac2ed2abf10deb0d37w&un_area=12_904_905_50601',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'X-Requested-With': 'com.jingdong.app.mall',
+        'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+    }
+
+    params = (
+        ('functionId','getLuckDrawEntrance'),
+        ('body', '%7B%22platformType%22%3A%221%22%7D'),
+        ('appid', 'couponPackDetail'),
+        ('client','m'),
+        ('geo','%5Bobject%20Object%5D'),
+
+    )
+    data = {
+            'body': '{"childActivityUrl":"openapp.jdmobile://virtual?params={\\"category\\":\\"jump\\",\\"des\\":\\"couponCenter\\"}","eid":"eidA967081212ascT40f7ANpSG+7HGB2vb4KXE+NIVnCZzPwc1VqaBwRbvuYUGhk9hFdP0tp5/I6uFKvyHo+y5S7JW5Uvi7+UX7Doe0t2vqtpoF0AElK","monitorRefer":"appClient","monitorSource":"cc_sign_android_index_config","pageClickKey":"Coupons_GetCenter","pin":"281f08a7768fd3326e82a93ceef73104","sessionId":"","shshshfpb":"tanCuOqNJGuM2rMyUfN488yD7pacn00MAJvcSMP67YqExqlHbANspbdX9wLeRmvZV/vaQty+edb/C2t8zXMeb57yw2juUzgNbplcdYz+V8NQ=","verifyToken":""}',
+            }
+    addr='https://api.m.jd.com/client.action?functionId=ccSignInNew&clientVersion=9.4.4&build=87076&client=android&d_brand=HUAWEI&d_model=STF-AL10&osVersion=9&screen=1920*1080&partner=huawei&oaid=bd33b7ff-f4ff-e77b-fe57-d6f95b6f95e7&eid=eidA967081212ascT40f7ANpSG+7HGB2vb4KXE+NIVnCZzPwc1VqaBwRbvuYUGhk9hFdP0tp5/I6uFKvyHo+y5S7JW5Uvi7+UX7Doe0t2vqtpoF0AElK&sdkVersion=28&lang=zh_CN&uuid=4587b4d704588eeb&aid=4587b4d704588eeb&area=12_904_905_50601&networkType=wifi&wifiBssid=unknown&uts=0f31TVRjBSsqndu4%2FjgUPz6uymy50MQJNEcBBqXs8flvr8dIWOoeJ55S0bN9%2FowQ5%2FPQF3Lh3InX6ifpD1A%2Fq2ZCD%2BGcdWb7NtdW7RrssdXIJPPUs%2FuplMnMP8%2Fms0ibvpx%2FPbe9TpImri7SwSyadU7TiBoeFnF7lilEZtTeZkMmxBlMrtH%2FzYwKasNxtDxN7WJlfPIB92edIk6kwQzKHQ%3D%3D&st=1615441254230&sign=e708355ab2c517596d6b4eafddab28f1&sv=121'
+    response = requests.post(addr, headers=headers, cookies=cookies,data=data,  verify=False)
+    result = response.text
+    print(result)
+
 def run():
     utc_dt = datetime.utcnow()  
     bj_dt = utc_dt+timedelta(hours=8)  
@@ -228,6 +258,7 @@ def run():
     message = ""
     for cookies in jdCookie.get_cookies():
         print(f"""[ {cookies["pt_pin"]} ]""")
+        jd_tiantiansignnew(cookies)
         zhuanpan_3times(cookies)
         qianDao(cookies)
         miaoshaqiandao(cookies)
