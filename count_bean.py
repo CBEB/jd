@@ -176,6 +176,50 @@ def miaoshaqiandao(cookies):
     result = response.text
     print(result)
 
+def zhuanpan_3times(cookies):
+    headers = {
+        'Host': 'api.m.jd.com',
+        'Accept': 'application/json, text/plain, */*',
+        'Connection': 'keep-alive',
+        'Origin': 'https://h5.m.jd.com',
+        'User-Agent': 'jdapp;android;9.4.2;9;8363731383030333136353136383-23D2534326132313536653035373;network/wifi;model/STF-AL10;addressid/137740131;aid/4587b4d704588eeb;oaid/bd33b7ff-f4ff-e77b-fe57-d6f95b6f95e7;osVer/28;appBuild/86916;partner/huawei;eufv/1;jdSupportDarkMode/0;Mozilla/5.0 (Linux; Android 9; STF-AL10 Build/HUAWEISTF-AL10; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/66.0.3359.126 MQQBrowser/6.2 TBS/044942 Mobile Safari/537.36',
+        # 'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1',
+        'Accept-Language': 'zh-CN,en-US;q=0.9',
+        'Referer':'https://h5.m.jd.com/babelDiy/Zeus/yj8mbcm6roENn7qhNdhiekyeqtd/index.html?sid=8f1b25b586373ac2ed2abf10deb0d37w&un_area=12_904_905_50601',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'X-Requested-With': 'com.jingdong.app.mall',
+        'Content-Type':'text/plain'
+    }
+
+    params = (
+        ('functionId','getLuckDrawEntrance'),
+        ('body', '%7B%22platformType%22%3A%221%22%7D'),
+        ('appid', 'couponPackDetail'),
+        ('client','m'),
+        ('geo','%5Bobject%20Object%5D'),
+
+    )
+    data = {'functionId': 'doInteractiveAssignment',
+            'client': 'wh5',
+            'appid': 'SecKill2020',
+            'body':'{"encryptProjectId":"4Rxa9S9Vcgmq5zVtPJzNdFwpzsar","encryptAssignmentId":"VegzgtziMHuipQLoycDf1Toe4jr","completionFlag":true,"actionType":0,"sourceCode":"aceacehttp1595403084552","ext":{"platform":"1","eid":"eidA967081212ascT40f7ANpSG+7HGB2vb4KXE+NIVnCZzPwc1VqaBwRbvuYUGhk9hFdP0tp5/I6uFKvyHo+y5S7JW5Uvi7+UX7Doe0t2vqtpoF0AElK","referUrl":"","userAgent":"jdapp;android;9.4.4;9;8363731383030333136353136383-23d2534326132313536653035373;network/wifi;model/stf-al10;addressid/137740131;aid/4587b4d704588eeb;oaid/bd33b7ff-f4ff-e77b-fe57-d6f95b6f95e7;osver/28;appbuild/87076;partner/huawei;eufv/1;jdsupportdarkmode/0;mozilla/5.0 (linux; android 9; stf-al10 build/huaweistf-al10; wv) applewebkit/537.36 (khtml, like gecko) version/4.0 chrome/66.0.3359.126 mqqbrowser/6.2 tbs/044942 mobile safari/537.36"}}',
+            }
+    addr='https://api.m.jd.com/client.action?functionId=getLuckDrawEntrance&body=%7B%22platformType%22%3A%221%22%7D&appid=couponPackDetail&client=m&clientVersion=1.0.0&area=12_904_905_50601&geo=%5Bobject%20Object%5D&eu=8363731383030333136353136383&fv=23D2534326132313536653035373'
+    response = requests.post(addr, headers=headers, cookies=cookies,  verify=False)
+    result = response.text
+    print(result)
+
+    print("second time")
+    response = requests.post(addr, headers=headers, cookies=cookies, verify=False)
+    result = response.text
+    print(result)
+
+    #time.leep(1)
+    print("third time")
+    response = requests.post(addr, headers=headers, cookies=cookies, verify=False)
+    result = response.text
+    print(result)
+
 def run():
     utc_dt = datetime.utcnow()  
     bj_dt = utc_dt+timedelta(hours=8)  
@@ -183,6 +227,7 @@ def run():
     now = bj_dt.strftime("%Y-%m-%d %H:%M:%S")
     message = ""
     for cookies in jdCookie.get_cookies():
+        zhuanpan_3times(cookies)
         qianDao(cookies)
         miaoshaqiandao(cookies)
         total = totalBean(cookies)
