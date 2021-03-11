@@ -1,8 +1,8 @@
-name: BeanSign_BeanCount
+name: BeanSignBeanCount
 
 on:
   schedule:
-    - cron: '10 3,9,14 * * * '
+    - cron: '11 3,16,22 * * *'
   watch:
     types: [started]
 jobs:
@@ -26,3 +26,4 @@ jobs:
             JD_COOKIE: ${{ secrets.JD_COOKIE }}
             SCKEY: ${{ secrets.SCKEY }}
             BARK: ${{ secrets.BARK }}
+
