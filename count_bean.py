@@ -227,6 +227,7 @@ def run():
     now = bj_dt.strftime("%Y-%m-%d %H:%M:%S")
     message = ""
     for cookies in jdCookie.get_cookies():
+        print(f"""[ {cookies["pt_pin"]} ]""")
         zhuanpan_3times(cookies)
         qianDao(cookies)
         miaoshaqiandao(cookies)
