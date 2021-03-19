@@ -38,21 +38,23 @@ headers_app = {
 def getTemplate(cookies, functionId, params):
     params += (('reqSource', 'weapp'),)
     response = requests.get(f'https://jdjoy.jd.com/common/pet/{functionId}',
-                            headers=headers, params=params, cookies=cookies)
-    return response.json()
+                            headers=headers, params=params, cookies=cookies,verify=False)
+    print(response.text)
+    #return response.json()
+    return response
 
 
 def postTemplate(cookies, functionId, data):
     headers["Content-Type"] = "application/x-www-form-urlencoded"
     response = requests.post(f'https://jdjoy.jd.com/common/pet/{functionId}',
-                             headers=headers, cookies=cookies, data=data)
+                             headers=headers, cookies=cookies, data=data,verify=False)
     return response.json()
 
 
 def postTemplate2(cookies, functionId, data):
     headers["Content-Type"] = "application/json"
     response = requests.post(f'https://jdjoy.jd.com/common/pet/{functionId}',
-                             headers=headers, cookies=cookies, data=json.dumps(data))
+                             headers=headers, cookies=cookies, data=json.dumps(data),verify=False)
     return response.json()
 
 
@@ -172,7 +174,7 @@ def ScanMarket_extra(cookies):
     )
 
     response = requests.get('https://jdjoy.jd.com/pet/getPetTaskConfig',
-                            headers=headers_app, params=params, cookies=cookies)
+                            headers=headers_app, params=params, cookies=cookies,verify=False)
     datas = response.json()["datas"][0]
     if datas["receiveStatus"] == "chance_full":
         return
@@ -192,7 +194,7 @@ def ScanMarket_extra(cookies):
 def desk(cookies):
     print("\n 【限时货柜】")
     response = requests.get('https://jdjoy.jd.com/pet/getDeskGoodDetails',
-                            headers=headers_app, cookies=cookies)
+                            headers=headers_app, cookies=cookies,verify=False)
     result = response.json()
     # print(result)
     deskGoods = result["data"]["deskGoods"]
@@ -219,7 +221,7 @@ def desk(cookies):
 def reward(cookies):
     print("\n【兑换京豆】")
     response = requests.get('https://jdjoy.jd.com/gift/getHomeInfo',
-                            headers=headers_app, cookies=cookies)
+                            headers=headers_app, cookies=cookies,verify=False)
     result = response.json()
     giftSaleInfos = result["data"]["levelSaleInfos"]["giftSaleInfos"]
 
@@ -233,7 +235,7 @@ def reward(cookies):
             "orderSource": "pet", "saleInfoId": i["id"]
         }
         response = requests.post('https://jdjoy.jd.com/gift/exchange',
-                                 headers=headers_app, data=json.dumps(data), cookies=cookies)
+                                 headers=headers_app, data=json.dumps(data), cookies=cookies,verify=False)
         print(response.text)
     
 def combat(cookies):
@@ -254,7 +256,7 @@ def combat(cookies):
     if petRaceResult == "unreceive":
         print("领取奖励")
         response = requests.get(f'https://jdjoy.jd.com/pet/combat/receive',
-                                headers=headers, cookies=cookies)
+                                headers=headers, cookies=cookies,verify=False)
         print(response.text)
         return
     if petRaceResult == "participate":
@@ -268,7 +270,7 @@ def combat(cookies):
             print(
                 f"""{i["rank"]} --- {i["distance"]} -- {i["nickName"]}    {f(i["myself"])} """)
         result = requests.get(f'https://jdjoy.jd.com/pet/combat/getBackupInfo',
-                              headers=headers, cookies=cookies).json()["data"]
+                              headers=headers, cookies=cookies,verify=False).json()["data"]
         print("\n===应援团===")
         backupList = result["backupList"]
         if backupList:
@@ -277,7 +279,7 @@ def combat(cookies):
     if petRaceResult == "not_participate":
         print("准备参赛")
         data = requests.get(f'https://jdjoy.jd.com/pet/combat/match?teamLevel={teamLevel}',
-                            headers=headers, cookies=cookies)
+                            headers=headers, cookies=cookies,verify=False)
         print(data.text)
         time.sleep(5)  # 5秒延迟，多账号可能匹配到自己
 
@@ -285,7 +287,7 @@ def run():
     for cookies in jdCookie.get_cookies():
         feed(cookies, FEED_NUM)
         
-
+'''
     for cookies in jdCookie.get_cookies():
         print("\n")
         print(f"""[ {cookies["pt_pin"]} ]""")
@@ -296,5 +298,6 @@ def run():
         desk(cookies)
         combat(cookies)
         print("##"*25)
+'''
 if __name__ == "__main__":
     run()
