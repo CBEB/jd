@@ -19,19 +19,41 @@ import notification
 
 ###############################
 # 方案1 本地执行、云服务器、云函数等等   下载到本地，填写参数，执行
+
 cookies1 = {
-    'pt_key': '',  # cookie参数填写，填写完注意不要上传
-    'pt_pin': '',
+    'pt_key': 'AAJgQMPwADAI3BuizFse3tw6D0Fy_cl2_x27kW_LoLoRWM8H5vmwOPHCCabVXewaQNL944pbjWE',  # cookie参数填写，填写完注意不要上传
+    'pt_pin': 'proing2007',
+}
+cookiesk = {
+    'pt_key': 'AAJgQL9IADAKREsxTrkJmRcUMApkp5L7K0ydm7u22hcK_bt_bgaUQzvJ3gMsGbPirdxpDABiFxg',  # cookie参数填写，填写完注意不要上传
+    'pt_pin': 'jd_75ea496eaaff9',
 }
 
-cookies2 = {}   # 如果有其它账号，还需要将cookies2填写进 下面的cookieLists
+cookiescp = {
+    'pt_key': 'AAJgQYm2ADAKimx8ggkwB945sQTmmRkAHpXs2JNg9kXxHInLApqW-ncDLk59ENbbFzzegKp_IBk',
+    'pt_pin': 'cp1573',
+}
+cookiesk1 = {
+    'pt_key': 'AAJgTsCIADC8lhhb4-HwMLPpycb0neUY8Jr9UtBGy_pZuww7sCoEpI_ZKpRnCq8APfQTh8oh0Yw',
+    'pt_pin': 'jd_DsBxsOPefLwi',
+}
+cookiesJ = {
+    'pt_key': 'AAJgUfGIADB6pHVuCpIq9viaSn8PlPIB2Yx9dSTMY5Wx8lTu7DMyu0Sh93TtZwJifyE4hmy2Uzg',
+    'pt_pin': 'jd_62b22b61e73e3',
+}
+cookies6 = {
+    'pt_key': 'AAJgTyAJADCiEz1jsxZyOPSQgsJ23U3Pjh1Pyk8OtIraA8y14JHVsPQdn8ypToYIgNJ5-n1hrQc',
+    'pt_pin': 'jd_4195ba6d85400',
+}
 
-cookiesLists = [cookies1, ]  # 多账号准备
+
+
+cookiesLists = [cookies1,cookiesk,cookiescp,cookiesk1,cookiesJ,cookies6]
 
 
 ####################################
 # 方案2 GitHub action 自动运行    cookies读取自secrets  
-if "JD_COOKIE" in os.environ:
+if "JD_COOKIE1" in os.environ:
     """
     判断是否运行自 GitHub action, "JD_COOKIE" 该参数与 repo里的Secrets的名称保持一致
     """
@@ -44,6 +66,7 @@ if "JD_COOKIE" in os.environ:
         cookiesLists.append({"pt_pin": pt_pin, "pt_key": pt_key})
 
 #######################################
+
 
 
 def valid(cookies):
