@@ -2,7 +2,7 @@ name: Joy_steal
 
 on:
   schedule:
-    - cron: '0 16 1 * 12 '
+    - cron: '0 16 1 * *'
   watch:
     types: [started]
 jobs:
