@@ -19,7 +19,8 @@ shareCodes = [
     "MTE1NDAxNzcwMDAwMDAwMzkwMjQ2MjU=", "MTE1NDUyMjEwMDAwMDAwMzg5MzIxMTE=", "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk=",
     "MTE1NDQ5MzYwMDAwMDAwNDU0NDk2ODc=",
     "MTAxODcxOTI2NTAwMDAwMDAxMzUxNjAyMw==",
-    "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk="
+    "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk=",
+    "MTEzMzI0OTE0NTAwMDAwMDA0MjgwODI4MQ==",
 
 ]  # 自己不能助力自己,填写他人的助力码
 

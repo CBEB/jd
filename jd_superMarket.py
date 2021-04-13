@@ -100,8 +100,9 @@ def receiveCoin(cookies):
     if data["bizCode"] == 802:
         print(data["bizMsg"])
         return
-    totalGold = data["result"]["totalGold"]
-    print(
+    if 'result' in data:
+      totalGold = data["result"]["totalGold"]
+      print(
         f"""totalGold:{format(totalGold,",")} (+{format(data["result"]["receivedGold"],",")})""")
 
 
@@ -109,6 +110,11 @@ def upgrade(cookies):
     if flag_upgrade == 0:
         return
     print(">>>检查升级商品")
+
+    data1 = getTemplate(cookies, "smtg_productList", {})
+    if 'result' not in data1['data']:
+        return
+
     data = getTemplate(cookies, "smtg_productList", {})[
         "data"]["result"]["productList"]
 
@@ -140,8 +146,15 @@ def upgrade(cookies):
 def shelfList(cookies):
     print("\n【我的货架】")
     print("#######################################")
-    shelfList = getTemplate(cookies, "smtg_shelfList", {})[
-        "data"]["result"]["shelfList"]
+    shelfList1 = getTemplate(cookies, "smtg_shelfList", {})
+    shelfList = shelfList1
+    #shelfList = getTemplate(cookies, "smtg_shelfList", {})[
+    #    "data"]["result"]["shelfList"]
+    if 'result' in shelfList1['data']:
+        shelfList =  shelfList1["data"]["result"]["shelfList"]
+    else:
+       print(shelfList)
+       return
 
     for i in shelfList:
         # print(i)
@@ -202,6 +215,11 @@ def currentGold(cookies):
 
 def dailyTask(cookies):
     print("\n【店铺任务】")
+    
+    taskList1 = getTemplate(cookies, "smtg_queryShopTask", {})
+    if 'result' not in taskList1["data"]:
+        return
+
     taskList = getTemplate(cookies, "smtg_queryShopTask", {})[
         "data"]["result"]["taskList"]
     for i in taskList:
@@ -301,6 +319,11 @@ def limitTimePro(cookies):
     if flag_limitTimeProduct != 1:
         print("flag_limitTimeProduct不为1 跳出")
         return
+
+    data1 = getTemplate(cookies, "smtg_productList", {})
+    if 'result' not in data1['data']:
+        return
+
     data = getTemplate(cookies, "smtg_productList", {})[
         "data"]["result"]["productList"]
     productList = [i for i in data if i["productType"]
@@ -414,7 +437,7 @@ def exchangeBean_1(cookies):
         print(data["bizMsg"])
         return
     prizeList = data["result"]["prizeList"]
-    t1 = [i for i in prizeList if i["beanType"] == "Bean"]
+    t1 = [i for i in prizeList if 'beanType' in i and i["beanType"] == "Bean"]
     if t1:
         t1 = t1[0]
         if t1["targetNum"] == t1["finishNum"]:
@@ -441,7 +464,7 @@ def exchangeBean_1000(cookies):
         print(data["bizMsg"])
         return
     prizeList = data["result"]["prizeList"]
-    t1000 = [i for i in prizeList if i["beanType"] == "BeanPackage"]
+    t1000 = [i for i in prizeList if 'beanType' in i and i["beanType"] == "BeanPackage"]
     if t1000:
         t1000 = t1000[0]
         if t1000["targetNum"] == t1000["finishNum"]:
