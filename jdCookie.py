@@ -59,7 +59,7 @@ if "JD_COOKIE1" in os.environ:
     """
     print("执行自GitHub action")
     secret = os.environ["JD_COOKIE"]
-    cookiesLists = []  # 重置cookiesList
+    cookiesLists = []   # 重置cookiesList
     for line in secret.split('\n'):
         pt_pin = re.findall(r'pt_pin=(.*?)&', line)[0]
         pt_key = re.findall(r'pt_key=(.*?)$', line)[0]
