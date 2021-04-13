@@ -182,8 +182,8 @@ def _energyProp_use(cookies, energy_id):
     print(result)
 
 def run():
-    # print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
     for cookies in cookiesList:
+        print(f"""[ {cookies["pt_pin"]} ]""")
         task_status, source_id, done_distance, destination = flyTask_state(cookies)
         if task_status == 0:
             print(f"开启新任务:{destination}")

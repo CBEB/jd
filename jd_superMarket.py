@@ -104,7 +104,10 @@ def receiveCoin(cookies):
       totalGold = data["result"]["totalGold"]
       print(
         f"""totalGold:{format(totalGold,",")} (+{format(data["result"]["receivedGold"],",")})""")
-
+    else:
+        if '活动太火爆啦' in data['bizMsg']:
+            print(data)
+            return -9
 
 def upgrade(cookies):
     if flag_upgrade == 0:
@@ -209,6 +212,10 @@ def currentGold(cookies):
     """
     当前金币
     """
+    result1 = getTemplate(cookies, "smtg_home", {})
+    if 'result' not in result1['data']:
+        return
+
     result = getTemplate(cookies, "smtg_home", {})["data"]["result"]
     return result["totalGold"], result["totalBlue"]
 
@@ -482,7 +489,8 @@ def run():
     cookiesList = jdCookie.get_cookies()
     for cookies in cookiesList:
         print(f"""[ {cookies["pt_pin"]} ]""")
-        receiveCoin(cookies)
+        if -9 == receiveCoin(cookies):
+            continue
         receiveBlue(cookies)
         shelfList(cookies)
         upgrade(cookies)
