@@ -17,7 +17,8 @@ plantUuid = ["hypnkh35uvhwmck3k2p5xx2pzq",
              "e7lhibzb3zek2rsoovleein56fs64hdya3alsai",
              "ebxm5lgxoknqd75u3l3lcgl6fjrjsstnd363poa",
              "olmijoxgmjutzdzgzut5bkkubtyibactyoq6mdy",
-              "l4ex6vx6yynou343semyjhk4b24ocsugqmw6hfa",
+             "l4ex6vx6yynou343semyjhk4b24ocsugqmw6hfa",
+             "4npkonnsy7xi3b7chzrfhkwmcnsw4mryhg6wf3i",
 ]  # 填写别人的助力码
 
 def functionTemplate(cookies, functionId, body):
