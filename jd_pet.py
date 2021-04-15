@@ -16,7 +16,9 @@ import notification
 feedTimesLimit = 12
 retainFoodAmountLimit = 40  # 完成10次喂养任务的基础上,希望food始终高于此数;优先级高于feedTimesLimit
 shareCodes = [
-    "MTE1NDAxNzcwMDAwMDAwMzkwMjQ2MjU=", "MTE1NDUyMjEwMDAwMDAwMzg5MzIxMTE=", "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk=",
+    "MTE1NDAxNzcwMDAwMDAwMzkwMjQ2MjU=", 
+    "MTE1NDUyMjEwMDAwMDAwMzg5MzIxMTE=", 
+    "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk=",
     "MTE1NDQ5MzYwMDAwMDAwNDU0NDk2ODc=",
     "MTAxODcxOTI2NTAwMDAwMDAxMzUxNjAyMw==",
     "MTE1NDUyMjEwMDAwMDAwNDUwMjg5OTk=",
