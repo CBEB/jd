@@ -218,6 +218,10 @@ def waterWheel(cookies,currentRoundId):
 def run():
     for cookies in jdCookie.get_cookies():
         plantBeanIndex = postTemplate(cookies, "plantBeanIndex", {})
+        print(cookies["pt_pin"])
+        if "data" not in plantBeanIndex:
+            continue
+
         print(
             f"""【{plantBeanIndex["data"]["plantUserInfo"]["plantNickName"]}】\n""")
         print(
