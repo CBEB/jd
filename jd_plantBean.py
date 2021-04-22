@@ -16,6 +16,7 @@ plantUuid = ["hypnkh35uvhwmck3k2p5xx2pzq",
              "4npkonnsy7xi3xfj3v6qtdvrzthnsg4aagpjsea",
              "e7lhibzb3zek2rsoovleein56fs64hdya3alsai",
              "wk23hnavvz65fhxgj2bclrt4se5ac3f4ijdgqji",
+             "hhirqyqtz5h3e6srbz4fnb2wuy5ac3f4ijdgqji"             
              "ebxm5lgxoknqd75u3l3lcgl6fjrjsstnd363poa",
              "olmijoxgmjutzdzgzut5bkkubtyibactyoq6mdy",
              "l4ex6vx6yynou343semyjhk4b24ocsugqmw6hfa",

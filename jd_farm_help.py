@@ -11,12 +11,15 @@ import time
 4、欢迎补充一个足够多的shareCodes列表
 5、cron 0 */3 * * *
 """
-shareCodes = ["b183f834ec304af28567db5e2e492839",
+shareCodes = [
+              "b183f834ec304af28567db5e2e492839",
               "d00ef6357f264550a50dff70204ddfdb",
               "7e568ac242934d6f856ebe8364a9828b",
               "1d502afa8d254418bbe36d34fb54c712",
               "c6ece1d270704bf6830db09165bdf757",
               "cd54168b2de34fbbb5d3b9e92ef3d78b",
+              "d71da201910446fa88da995ca107b37e",
+              "7af0c86748ed4318a47f6eb104880ade",
               "b5ced0078d2c445484a98c4053382aca",
               "80fe97d7250548868ae9db9bec751055",
               ]  
