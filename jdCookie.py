@@ -47,9 +47,10 @@ if "JD_COOKIE" in os.environ:
 else:
     fo = open("cookies.txt", "r", encoding='utf-8')
     for line in fo.readlines():
-        pt_pin = re.findall(r'pt_pin=(.*?)&', line)[0]
-        pt_key = re.findall(r'pt_key=(.*?)$', line)[0]
-        cookiesLists.append({"pt_pin": pt_pin, "pt_key": pt_key})
+        if "pt_pin" in line:
+            pt_pin = re.findall(r'pt_pin=(.*?)&', line)[0]
+            pt_key = re.findall(r'pt_key=(.*?)$', line)[0]
+            cookiesLists.append({"pt_pin": pt_pin, "pt_key": pt_key})
 
 
 def valid(cookies):
