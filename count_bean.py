@@ -235,7 +235,7 @@ def jd_tiantiansignnew(cookies):
     }
 
     params = (
-        ('functionId','getLuckDrawEntrance'),
+        ('functionId','ccSignInNew'),
         ('body', '%7B%22platformType%22%3A%221%22%7D'),
         ('appid', 'couponPackDetail'),
         ('client','m'),
