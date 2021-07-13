@@ -40,17 +40,17 @@ if "JD_COOKIE" in os.environ:
     cookiesLists = []   # 重置cookiesList
     for line in secret.split('\n'):
         if "pt_pin" in line:
-            pt_pin = re.findall(r'pt_pin=(.*?)&', line)[0]
-            pt_key = re.findall(r'pt_key=(.*?)$', line)[0]
+            pt_pin = re.findall(r'pt_pin=(.*?);', line)[0]
+            pt_key = re.findall(r'pt_key=(.*?);', line)[0]
             cookiesLists.append({"pt_pin": pt_pin, "pt_key": pt_key})
 
 #######################################
 else:
-    fo = open("cookies.txt", "r", encoding='utf-8')
+    fo = open("cookies-new.txt", "r", encoding='utf-8')
     for line in fo.readlines():
         if "pt_pin" in line:
-            pt_pin = re.findall(r'pt_pin=(.*?)&', line)[0]
-            pt_key = re.findall(r'pt_key=(.*?)$', line)[0]
+            pt_pin = re.findall(r'pt_pin=(.*?);', line)[0]
+            pt_key = re.findall(r'pt_key=(.*?);', line)[0]
             cookiesLists.append({"pt_pin": pt_pin, "pt_key": pt_key})
 
 

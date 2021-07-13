@@ -13,7 +13,7 @@ import time
 """
 
 FEED_NUM = 10   # [10,20,40,80]
-combat_flag = 1  #自动参赛，取消置0
+combat_flag = 1  #自动参赛，取消置0tokenKey
 teamLevel = 2  # 双人赛据说不需要门票
 
 headers = {
